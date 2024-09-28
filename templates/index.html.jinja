@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Proof</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+</head>
+<body>
+    <script>
+        document.body.addEventListener('htmx:afterSwap', function(event) {
+            // Check if the request was successful
+            if (event.detail.xhr.status === 200) {
+                const response = JSON.parse(event.detail.xhr.response);
+                // Display the alert with the message from the response
+                alert(response.message);
+            }
+        });
+    </script>
+    <div class="container">
+        <h1>Bloom Proof</h1>
+        <form>
+            <textarea id="document" name="document" placeholder="Enter text to check spelling..."></textarea>
+            <button hx-post="/check" hx-target="#document" hx-swap="none">Check Spelling</button>
+        </form>
+    </div>
+</body>
+</html>

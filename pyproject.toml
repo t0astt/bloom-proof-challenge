@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "bloom-proof-challenge"
+version = "0.1.0"
+description = ""
+authors = ["t0astt <t0astt93@gmail.com>"]
+readme = "README.md"
+packages = [{include = "bloom_proof_challenge"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^3.0.3"
+gunicorn = "^23.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
